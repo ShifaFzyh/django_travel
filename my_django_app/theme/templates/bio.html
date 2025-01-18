@@ -1,0 +1,74 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <title></title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		{% tailwind_css %}
+	</head>
+
+	<body>
+		<div>
+			{% include 'nav.html' %}
+		</div>
+		<div>
+            <div class="max-xl:grid max-xl:ml-20 max-xl:pt-28 flex">
+                <div class="content-center">
+                    <div class="ml-48 pt-32 pb-14">
+                        <nav aria-label="Page navigation example">
+                            <ul class="inline-flex -space-x-px text-base h-10">
+                            <li>
+                                <a href="{% url 'bio_motor' %}" class="flex items-center justify-center px-7 h-16 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-7 h-16 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                            </li>
+                            <li>
+                                <a href="#" aria-current="page" class="flex items-center justify-center px-7 h-16 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-7 h-16 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center justify-center px-7 h-16 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                            </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="ml-20 py-52 px-72">
+                        {% block content %}
+
+		                {% endblock %}
+                    </div>
+                </div>
+
+                <div class="pl-72 pt-56">
+                    <div class="relative overflow-x-auto border-black border rounded-lg">
+                        <table class="h-40 w-full text-sm text-left rtl:text-right text-black dark:text-black">
+                                <tr class="px-72 text-xl bg-white border-b ">
+                                    <td class="px-6 py-4">Email</td> 
+                                    <td class="px-6 py-4">{{ bio.email }}</td>  
+                                </tr>
+                                <tr class="px-72 text-xl bg-white border-b ">
+                                    <td class="px-6 py-4">First Name</td> 
+                                    <td class="px-6 py-4">{{ bio.nama1 }}</td> 
+                                </tr>
+                                <tr class="px-72 text-xl bg-white ">
+                                    <td class="px-6 py-4">Last Name</td> 
+                                    <td class="px-6 py-4">{{ bio.nama2 }}</td>
+                                </tr>
+                                <tr class="px-72 text-xl bg-white border-b ">
+                                    <td class="px-6 py-4">Number Phone</td> 
+                                    <td class="px-6 py-4">{{ bio.phone }}</td>  
+                                </tr>
+                        </table>
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+	</body>
+</html>

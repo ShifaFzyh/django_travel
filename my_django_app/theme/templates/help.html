@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="bg-cyan-500 py-10">
+   <div class="pt-20 text-center">
+      <h1 class="font-bold text-4xl text-white">PUSAT BANTUAN</h1>
+      <h3 class="pt-5 text-3xl text-white">Temukan jawaban anda di sini</h3>
+   </div>
+   <div>
+      <form class="pt-10 max-w-lg mx-auto">   
+         <label for="default-search" class="mb-2 text-sm font-medium text-black sr-only dark:text-black">Search</label>
+         <div class="relative">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+               <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+               </svg>
+            </div>
+            <input type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-black border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-white dark:border-white dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Help" required />
+            <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+         </div>
+      </form>
+   </div>
+</div>
+<div class="h-lvh">
+   <div class="ml-40 mt-10">
+      <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="w-5/12 border-solid border-2 border-black text-black focus:ring-4 focus:outline-none font-medium rounded-lg px-10 py-4 inline-flex items-center text-xl" type="button">Cara rechedule tiket
+      </button>
+   
+      <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow px-52 dark:bg-gray-700">
+         <ul class="py-4 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+           <li>
+             <p class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus debitis enim quas nam, tempore ratione, voluptate iste perferendis ipsa magni libero quos animi possimus? Quaerat velit fugit adipisci! Consectetur, praesentium?</p>
+           </li>
+         </ul>
+      </div>
+   </div>
+   <div class="items-center ml-40 mt-5">
+      <button id="dropdownDefaultButton1" data-dropdown-toggle="dropdown1" class="w-5/12 border-solid border-2 border-black text-black focus:ring-4 focus:outline-none font-medium rounded-lg px-10 py-4 inline-flex items-center text-xl" type="button">Cara membatalkan dan refund tiket pesawat
+      </button>
+   
+      <div id="dropdown1" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow px-52 dark:bg-gray-700">
+         <ul class="py-4 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton1">
+           <li>
+             <p class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus debitis enim quas nam, tempore ratione, voluptate iste perferendis ipsa magni libero quos animi possimus? Quaerat velit fugit adipisci! Consectetur, praesentium?</p>
+           </li>
+         </ul>
+      </div>
+   </div>
+   <div class="items-center ml-40 mt-5">
+      <button id="dropdownDefaultButton1" data-dropdown-toggle="dropdown2" class="w-5/12 border-solid border-2 border-black text-black focus:ring-4 focus:outline-none font-medium rounded-lg px-10 py-4 inline-flex items-center text-xl" type="button">Cara membatalkan dan refund tiket kereta
+      </button>
+   
+      <div id="dropdown2" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow px-52 dark:bg-gray-700">
+         <ul class="py-4 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton1">
+           <li>
+             <p class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus debitis enim quas nam, tempore ratione, voluptate iste perferendis ipsa magni libero quos animi possimus? Quaerat velit fugit adipisci! Consectetur, praesentium?</p>
+           </li>
+         </ul>
+      </div>
+   </div>
+   <div class="items-center ml-40 mt-5">
+      <button id="dropdownDefaultButton1" data-dropdown-toggle="dropdown3" class="w-5/12 border-solid border-2 border-black text-black focus:ring-4 focus:outline-none font-medium rounded-lg px-10 py-4 inline-flex items-center text-xl" type="button">Cara membatalkan dan refund tiket bis
+      </button>
+   
+      <div id="dropdown3" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow px-52 dark:bg-gray-700">
+         <ul class="py-4 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton1">
+           <li>
+             <p class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus debitis enim quas nam, tempore ratione, voluptate iste perferendis ipsa magni libero quos animi possimus? Quaerat velit fugit adipisci! Consectetur, praesentium?</p>
+           </li>
+         </ul>
+      </div>
+   </div>
+   <div class="items-center ml-40 mt-5">
+      <button id="dropdownDefaultButton1" data-dropdown-toggle="dropdown4" class="w-5/12 border-solid border-2 border-black text-black focus:ring-4 focus:outline-none font-medium rounded-lg px-10 py-4 inline-flex items-center text-xl" type="button">Cara koreksi nama penumpang
+      </button>
+   
+      <div id="dropdown4" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow px-52 dark:bg-gray-700">
+         <ul class="py-4 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton1">
+           <li>
+             <p class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus debitis enim quas nam, tempore ratione, voluptate iste perferendis ipsa magni libero quos animi possimus? Quaerat velit fugit adipisci! Consectetur, praesentium?</p>
+           </li>
+         </ul>
+      </div>
+   </div>
+   <div class="items-center ml-40 mt-5">
+      <button id="dropdownDefaultButton1" data-dropdown-toggle="dropdown5" class="w-5/12 border-solid border-2 border-black text-black focus:ring-4 focus:outline-none font-medium rounded-lg px-10 py-4 inline-flex items-center text-xl" type="button">Cara Check-In Online
+      </button>
+   
+      <div id="dropdown5" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow px-52 dark:bg-gray-700">
+         <ul class="py-4 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton1">
+           <li>
+             <p class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus debitis enim quas nam, tempore ratione, voluptate iste perferendis ipsa magni libero quos animi possimus? Quaerat velit fugit adipisci! Consectetur, praesentium?</p>
+           </li>
+         </ul>
+      </div>
+   </div>
+   <div class="items-center ml-40 mt-5">
+      <button id="dropdownDefaultButton1" data-dropdown-toggle="dropdown6" class="w-5/12 border-solid border-2 border-black text-black focus:ring-4 focus:outline-none font-medium rounded-lg px-10 py-4 inline-flex items-center text-xl" type="button">Cara rechedule tiket kereta
+      </button>
+   
+      <div id="dropdown6" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow px-52 dark:bg-gray-700">
+         <ul class="py-4 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton1">
+           <li>
+             <p class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus debitis enim quas nam, tempore ratione, voluptate iste perferendis ipsa magni libero quos animi possimus? Quaerat velit fugit adipisci! Consectetur, praesentium?</p>
+           </li>
+         </ul>
+      </div>
+   </div>
+   <div class="items-center ml-40 mt-5">
+      <button id="dropdownDefaultButton1" data-dropdown-toggle="dropdown7" class="w-5/12 border-solid border-2 border-black text-black focus:ring-4 focus:outline-none font-medium rounded-lg px-10 py-4 inline-flex items-center text-xl" type="button">Janji rois travel
+      </button>
+   
+      <div id="dropdown7" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow px-52 dark:bg-gray-700">
+         <ul class="py-4 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton1">
+           <li>
+             <p class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus debitis enim quas nam, tempore ratione, voluptate iste perferendis ipsa magni libero quos animi possimus? Quaerat velit fugit adipisci! Consectetur, praesentium?</p>
+           </li>
+         </ul>
+      </div>
+   </div>
+</div>
+{% endblock %}

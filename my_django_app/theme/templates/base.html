@@ -1,0 +1,25 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <title></title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<script src="https://kit.fontawesome.com/4317466991.js" crossorigin="anonymous"></script>
+		{% tailwind_css %}
+	</head>
+
+	<body>
+		<div>
+			{% include 'nav.html' %}
+		</div>
+		{% block content %}
+
+		{% endblock %}
+		<div>
+			{% include 'footer.html' %}
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+	</body>
+</html>

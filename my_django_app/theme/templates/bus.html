@@ -1,0 +1,112 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <title></title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<script src="https://kit.fontawesome.com/4317466991.js" crossorigin="anonymous"></script>
+		{% tailwind_css %}
+	</head>
+
+	<body>
+		<div>
+			{% include 'nav.html' %}
+		</div>
+		<div>
+            <div class="pt-20 text-center">
+                <nav aria-label="Page navigation example">
+                    <ul class="inline-flex -space-x-px text-base h-10">
+                    <li>
+                        <a href="{% url 'plane' %}" class="flex items-center justify-center px-7 h-16 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"><i class="fa-solid fa-plane"></i></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'train' %}" class="flex items-center justify-center px-7 h-16 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"><i class="fa-solid fa-train"></i></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'bus' %}" class="flex items-center justify-center px-7 h-16 leading-tight text-gray-500 border-gray-300 rounded-e-lg hover:text-white dark:border-gray-700 dark:bg-gray-700 dark:text-white"><i class="fa-solid fa-bus"></i></a>
+                    </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="">
+            <form method="POST" action="{% url 'process_bus' %}">
+                {% csrf_token %}
+
+                <div class="max-w-4xl mx-auto mt-10 p-4 bg-white rounded-lg shadow-lg">
+                    <div class="flex justify-between items-center bg-gray-600 text-white rounded-t-lg p-4">
+                        <div class="flex space-x-4">
+                            <button class="bg-gray-700 px-4 py-2 rounded-md">Sekali Jalan / Pulang Pergi</button>
+                            <button class="px-4 py-2">Multi-kota</button>
+                        </div>
+                        <button class="bg-gray-700 px-4 py-2 rounded-md">Butuh inspirasi? Cari tiket ke mana saja!</button>
+                    </div>
+                    <div class="p-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-gray-600">Dari</label>
+                                <div class="flex items-center space-x-2">
+                                    <i class="fa-solid fa-location-crosshairs text-gray-500"></i>
+                                    <select name="terminal1" class="form-select w-full border-b-2 border-gray-300 focus:outline-none focus:border-blue-500" aria-label="Default select example"> 
+                                        <option selected>-- Pilih Lokasi --</option> 
+                                        {% for bus in bus_terminal %} 
+                                            <option value="{{ bus }}">{{ bus }}</option> 
+                                        {% endfor %} 
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-gray-600">Ke</label>
+                                <div class="flex items-center space-x-2">
+                                    <i class="fa-solid fa-location-crosshairs text-gray-500"></i>
+                                    <select name="terminal2" class="form-select w-full border-b-2 border-gray-300 focus:outline-none focus:border-blue-500" aria-label="Default select example"> 
+                                        <option selected>-- Pilih Lokasi --</option> 
+                                        {% for bus in bus_terminal %} 
+                                            <option value="{{ bus }}">{{ bus }}</option> 
+                                        {% endfor %} 
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-gray-600">Jumlah Penumpang</label>
+                                <div class="flex items-center space-x-2">
+                                    <i class="fas fa-user text-gray-500"></i>
+                                    <input type="text" value="1 Dewasa, 0 Anak, 0 Bayi" class="w-full border-b-2 border-gray-300 focus:outline-none focus:border-blue-500">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-gray-600">Tanggal pergi</label>
+                                <div class="flex items-center space-x-2">
+                                    <i class="fas fa-calendar-alt text-gray-500"></i>
+                                    <input type="datetime-local" value="11 Jan 2025" class="w-full border-b-2 border-gray-300 focus:outline-none focus:border-blue-500">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="text-gray-600 flex items-center">
+                                    <input type="checkbox" checked class="mr-2">
+                                    Tanggal Pulang
+                                </label>
+                                <div class="flex items-center space-x-2">
+                                    <i class="fas fa-calendar-alt text-gray-500"></i>
+                                    <input type="datetime-local" value="13 Jan 2025" class="w-full border-b-2 border-gray-300 focus:outline-none focus:border-blue-500">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <button class="w-full bg-orange-500 text-white py-3 rounded-md flex items-center justify-center">
+                                <i class="fas fa-search mr-2"></i>
+                                Beli Tiket
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+		<div>
+			{% include 'footer.html' %}
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+	</body>
+</html>
