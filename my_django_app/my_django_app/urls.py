@@ -36,6 +36,7 @@ urlpatterns = [
 
     path('process_krt/', process_krt, name='process_krt'),
     path('process_bus/', process_bus, name='process_bus'),
+    path('process_plane/', process_plane, name='process_plane'),
 
 
     

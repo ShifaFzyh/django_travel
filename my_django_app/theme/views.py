@@ -1,4 +1,20 @@
 from django.shortcuts import render
+import math
+
+def haversine(lat1, lon1, lat2, lon2):
+    # Konversi derajat ke radian
+    lat1, lon1, lat2, lon2 = map(math.radians, [lat1, lon1, lat2, lon2])
+    
+    # Rumus Haversine
+    dlon = lon2 - lon1
+    dlat = lat2 - lat1
+    a = math.sin(dlat / 2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2)**2
+    c = 2 * math.asin(math.sqrt(a))
+    
+    # Jarak dalam kilometer (radius bumi = 6371 km)
+    r = 6371
+    distance = r * c
+    return distance
 
 def index(request):
     return render(request, 'index.html')
@@ -37,20 +53,73 @@ def bio_motor(request):
 
 def plane(request):
     ps_bandara = ['International Suvarnabhumi(Bangkok)',
-                 'Changi (Singapura)',
-                 'Internasional Kuala Lumpur (Malaysia)',
-                 'Internasional Don Mueang (Bangkok)',
-                 'Internasional Phuket (Thailand)',
-                 'Internasional I Gusti Ngurah Rai (Bali)',
-                 'Internasional Noi Bai Hanoi (Vietnam)',
-                 'Internasional Phu Quoc (Vietnam)',
-                 'Internasional Ninoy Aquino (Manila)',
-                 'Internasional Soekarno-Hatta (Jakarta)']
-
+                'Changi (Singapura)',
+                'Internasional Kuala Lumpur (Malaysia)',
+                'Internasional Don Mueang (Bangkok)',
+                'Internasional Phuket (Thailand)',
+                'Internasional I Gusti Ngurah Rai (Bali)',
+                'Internasional Noi Bai Hanoi (Vietnam)',
+                'Internasional Phu Quoc (Vietnam)',
+                'Internasional Ninoy Aquino (Manila)',
+                'Internasional Soekarno-Hatta (Jakarta)']
+        
+            # Tambahkan jarak ke konteks
     context = {
-        'ps_bandara' : ps_bandara,
+        'ps_bandara': ps_bandara,
     }
+
     return render(request, 'plane.html', context)
+    
+def process_plane(request):
+    if request.method == "POST":
+        asal = request.POST.get('bandaraasal')  # Menggunakan POST untuk mendapatkan data
+        tujuan = request.POST.get('bandaratujuan')
+
+        bandara_data = {
+            'International Suvarnabhumi(Bangkok)': (13.7563, 100.5671),
+            'Changi (Singapura)': (1.3644, 103.9915),
+            'Internasional Kuala Lumpur (Malaysia)': (2.7456, 101.7072),
+            'Internasional Don Mueang (Bangkok)': (13.9125, 100.6072),
+            'Internasional Phuket (Thailand)': (7.8804, 98.3923),
+            'Internasional I Gusti Ngurah Rai (Bali)': (-8.7482, 115.1672),
+            'Internasional Noi Bai Hanoi (Vietnam)': (21.2181, 105.8003),
+            'Internasional Phu Quoc (Vietnam)': (10.2899, 103.9840),
+            'Internasional Ninoy Aquino (Manila)': (14.5086, 121.0190),
+            'Internasional Soekarno-Hatta (Jakarta)': (-6.1256, 106.6552),
+        }
+
+        # Memastikan bandara asal dan tujuan valid
+        if asal in bandara_data and tujuan in bandara_data:
+            # Ambil koordinat untuk bandara asal dan tujuan
+            lat1, lon1 = bandara_data[asal]
+            lat2, lon2 = bandara_data[tujuan]
+
+            # Hitung jarak menggunakan fungsi haversine
+            jarak = haversine(lat1, lon1, lat2, lon2)
+
+            # Menghitung total harga (misalnya, Rp 2300 per km)
+            harga_per_km = 2300  # Misalnya Rp 2300 per kilometer
+
+            # Menghitung total harga
+            total = jarak * harga_per_km
+
+            def format_rupiah(value):
+                return f"Rp {value:,.0f}".replace(',', '.')
+
+            harga_pswt = {
+                "bandara1": asal, 
+                "bandara2": tujuan, 
+                "Harga per kilometer": format_rupiah(harga_per_km),
+                "Harga": format_rupiah(total)
+            }
+
+            return render(request, "harga_pswt.html", {"harga_pswt": harga_pswt})
+        else:
+            # Jika bandara tidak valid
+            return render(request, "plane.html", {"error": "Bandara asal atau tujuan tidak valid."})
+
+    return render(request, "plane.html")
+
 
 def train(request):
     krt_stasiun = {'Jakarta',

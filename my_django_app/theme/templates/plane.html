@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="">
-            <form method="POST" action="{% url 'plane' %}">
+            <form method="POST" action="{% url 'process_plane' %}">
                 {% csrf_token %}
 
                 <div class="max-w-4xl mx-auto mt-10 p-4 bg-white rounded-lg shadow-lg">
@@ -49,7 +49,7 @@
                                 <label class="block text-gray-600">Dari</label>
                                 <div class="flex items-center space-x-2">
                                     <i class="fa-solid fa-location-crosshairs text-gray-500"></i>
-                                    <select name="bandara" class="form-select w-full border-b-2 border-gray-300 focus:outline-none focus:border-blue-500" aria-label="Default select example"> 
+                                    <select name="bandaraasal" class="form-select w-full border-b-2 border-gray-300 focus:outline-none focus:border-blue-500" aria-label="Default select example"> 
                                         <option selected>-- Pilih Lokasi --</option> 
                                         {% for ps in ps_bandara %} 
                                             <option value="{{ ps }}">{{ ps }}</option> 
@@ -61,7 +61,7 @@
                                 <label class="block text-gray-600">Ke</label>
                                 <div class="flex items-center space-x-2">
                                     <i class="fa-solid fa-location-crosshairs text-gray-500"></i>
-                                    <select name="bandara" class="form-select w-full border-b-2 border-gray-300 focus:outline-none focus:border-blue-500" aria-label="Default select example"> 
+                                    <select name="bandaratujuan" class="form-select w-full border-b-2 border-gray-300 focus:outline-none focus:border-blue-500" aria-label="Default select example"> 
                                         <option selected>-- Pilih Lokasi --</option> 
                                         {% for ps in ps_bandara %} 
                                             <option value="{{ ps }}">{{ ps }}</option> 
