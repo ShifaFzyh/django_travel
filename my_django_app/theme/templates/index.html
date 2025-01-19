@@ -1,16 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<div class="sm:max-w-full max-xl:h-auto h-svh bg-white">
-    <div class="max-xl:grid flex">
-        <div class="max-xl:ml-20 ml-40 max-xl:pt-28 pt-56 content-center">
+<div class="sm:max-w-full max-xl:h-auto h-svh bg-cover bg-center flex items-center justify-center">
+    <div class="max-w-screen-lg mx-auto text-center">
+        <!-- Bagian Teks -->
+        <div class="px-4">
             <h1 class="font-bold text-7xl text-blue-500">TOTORO TRAVELL</h1>
             <br>
-            <p class="max-w-94 text-3xl">Pesan Tiket Mudah dan Cepat</p>
-            <p class="max-w-70 text-xl">Cari, pilih, dan pesan tiket perjalananmu dalam hitungan menit.
-                <br>Praktis, aman, dan terjangkau!</p>
-            <p class="max-w-96 text-3xl font-bold"> Mulai perjalananmu sekarang!</p>
-            <a href="{% url 'services' %}" class="mt-9 relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+            <p class="text-3xl text-blue-500 font-bold">Pesan Tiket Mudah dan Cepat</p>
+            <br>
+            <p class="text-xl">
+                Cari, pilih, dan pesan tiket perjalananmu dalam hitungan menit.
+                <br>Praktis, aman, dan terjangkau!
+            </p>
+            <!-- Teks Tengah -->
+            <p class="text-3xl font-bold mt-6">Mulai perjalananmu sekarang!</p>
+            <!-- Tombol -->
+            <a href="{% url 'services' %}" 
+               class="mt-9 relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
                 <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                     PESAN SEKARANG
                 </span>
